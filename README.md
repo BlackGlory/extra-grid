@@ -27,7 +27,7 @@ function reverseDirection(direction: Direction): Direction
 
 ### Grid
 ```ts
-class erid<T> {
+class Grid<T> {
   readonly width: number
   readonly height: number
 
