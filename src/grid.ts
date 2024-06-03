@@ -9,13 +9,13 @@ export class Grid<T> {
   , public readonly height: number
   , createCell: (x: number, y: number) => T
   ) {
-    const rows: T[][] = new Array(width) as T[][]
-    for (let x = 0; x < width; x++) {
-      const columns = new Array(height) as T[]
-      for (let y = 0; y < height; y++) {
-        columns[y] = createCell(x, y)
+    const rows: T[][] = new Array(height) as T[][]
+    for (let y = 0; y < height; y++) {
+      const row = new Array(width) as T[]
+      for (let x = 0; x < width; x++) {
+        row[x] = createCell(x, y)
       }
-      rows[x] = columns
+      rows[y] = row
     }
     this.rows = rows
   }
@@ -27,7 +27,7 @@ export class Grid<T> {
     , 'Out of bounds'
     )
 
-    return this.rows[x][y]
+    return this.rows[y][x]
   }
 
   set(x: number, y: number, value: T): void {
@@ -37,7 +37,7 @@ export class Grid<T> {
     , 'Out of bounds'
     )
 
-    this.rows[x][y] = value
+    this.rows[y][x] = value
   }
 
   /**
@@ -78,7 +78,7 @@ export class Grid<T> {
    * 遍历坐标, 访问顺序与内部存储的顺序相同.
    */
   coordinates(): IterableIterator<[x: number, y: number]> {
-    return this.coordinatesColumnMajor()
+    return this.coordinatesRowMajor()
   }
 
   /**
@@ -106,7 +106,7 @@ export class Grid<T> {
   /**
    * 遍历指定单元格Moore型邻域的单元格, 访问顺序与内部存储的顺序相同.
    * 
-   * @param range 统计的范围.
+   * @param range
    * - 该值为1时:
    *   ```
    *   ooo
@@ -127,13 +127,13 @@ export class Grid<T> {
   , y: number
   , range: number = 1
   ): IterableIterator<[x: number, y: number]> {
-    return this.mooreNeighbourhoodCoordinatesColumnMajor(x, y, range)
+    return this.mooreNeighbourhoodCoordinatesRowMajor(x, y, range)
   }
 
   /**
    * 从左上角开始向右遍历指定单元格Moore型邻域的单元格.
    * 
-   * @param range 统计的范围.
+   * @param range
    * - 该值为1时
    *   ```
    *   ooo
@@ -176,7 +176,7 @@ export class Grid<T> {
   /**
    * 从左上角开始向下遍历指定单元格Moore型邻域的单元格.
    * 
-   * @param range 统计的范围.
+   * @param range
    * - 该值为1时:
    *   ```
    *   ooo

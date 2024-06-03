@@ -270,7 +270,7 @@ describe('Grid', () => {
     const iter = grid.coordinates()
     const result = toArray(iter)
 
-    expect(result).toStrictEqual(toArray(grid.coordinatesColumnMajor()))
+    expect(result).toStrictEqual(toArray(grid.coordinatesRowMajor()))
   })
 
   test('coordinatesRowMajor', () => {
@@ -313,7 +313,7 @@ describe('Grid', () => {
     const iter = grid.mooreNeighbourhoodCoordinates(1, 1, 1)
     const result = toArray(iter)
 
-    expect(result).toStrictEqual(toArray(grid.mooreNeighbourhoodCoordinatesColumnMajor(1, 1, 1)))
+    expect(result).toStrictEqual(toArray(grid.mooreNeighbourhoodCoordinatesRowMajor(1, 1, 1)))
   })
 
   describe('mooreNeighbourhoodCoordinatesRowMajor', () => {
