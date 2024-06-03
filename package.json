@@ -10,6 +10,9 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "sideEffects": false,
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "repository": "git@github.com:BlackGlory/extra-grid.git",
   "author": "BlackGlory <woshenmedoubuzhidao@blackglory.me>",
   "license": "MIT",
