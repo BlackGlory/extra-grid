@@ -51,20 +51,20 @@ class Grid<T> {
   coordinatesRowMajor(): IterableIterator<[x: number, y: number]>
   coordinatesColumnMajor(): IterableIterator<[x: number, y: number]>
 
-  neighborCoordinates(
+  mooreNeighbourhoodCoordinates(
     x: number
   , y: number
-  , distance: number = 1
+  , range: number = 1
   ): IterableIterator<[x: number, y: number]>
-  neighborCoordinatesRowMajor(
+  mooreNeighbourhoodCoordinatesRowMajor(
     x: number
   , y: number
-  , distance: number = 1
+  , range: number = 1
   ): IterableIterator<[x: number, y: number]>
-  neighborCoordinatesColumnMajor(
+  mooreNeighbourhoodCoordinatesColumnMajor(
     x: number
   , y: number
-  , distance: number = 1
+  , range: number = 1
   ): IterableIterator<[x: number, y: number]>
 }
 ```

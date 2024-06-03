@@ -104,16 +104,16 @@ export class Grid<T> {
   }
 
   /**
-   * 遍历单元格周边的单元格, 访问顺序与内部存储的顺序相同.
+   * 遍历指定单元格Moore型邻域的单元格, 访问顺序与内部存储的顺序相同.
    * 
-   * @param distance 统计的范围.
-   * - 该值为1时统计Moore型邻居单元格.
+   * @param range 统计的范围.
+   * - 该值为1时:
    *   ```
    *   ooo
    *   oxo
    *   oxo
    *   ```
-   * - 该值为2时统计Moore型邻居单元格及其向外扩充1圈的单元格, 以此类推.
+   * - 该值为2时:
    *   ```
    *   ooooo
    *   ooooo
@@ -122,23 +122,25 @@ export class Grid<T> {
    *   ooooo
    *   ```
    */
-  neighborCoordinates(x: number, y: number, distance: number = 1): IterableIterator<
-    [x: number, y: number]
-  > {
-    return this.neighborCoordinatesColumnMajor(x, y, distance)
+  mooreNeighbourhoodCoordinates(
+    x: number
+  , y: number
+  , range: number = 1
+  ): IterableIterator<[x: number, y: number]> {
+    return this.mooreNeighbourhoodCoordinatesColumnMajor(x, y, range)
   }
 
   /**
-   * 从左上角开始向右遍历单元格周边的单元格.
+   * 从左上角开始向右遍历指定单元格Moore型邻域的单元格.
    * 
-   * @param distance 统计的范围.
-   * - 该值为1时统计Moore型邻居单元格.
+   * @param range 统计的范围.
+   * - 该值为1时
    *   ```
    *   ooo
    *   oxo
    *   oxo
    *   ```
-   * - 该值为2时统计Moore型邻居单元格及其向外扩充1圈的单元格, 以此类推.
+   * - 该值为2时:
    *   ```
    *   ooooo
    *   ooooo
@@ -147,16 +149,18 @@ export class Grid<T> {
    *   ooooo
    *   ```
    */
-  * neighborCoordinatesRowMajor(x: number, y: number, distance: number = 1): IterableIterator<
-    [x: number, y: number]
-  > {
+  * mooreNeighbourhoodCoordinatesRowMajor(
+    x: number
+  , y: number
+  , range: number = 1
+  ): IterableIterator<[x: number, y: number]> {
     const maxX = this.height - 1
     const maxY = this.width - 1
 
-    const startX = Math.max(x - distance, 0)
-    const endX = Math.min(x + distance, maxX)
-    const startY = Math.max(y - distance, 0)
-    const endY = Math.min(y + distance, maxY)
+    const startX = Math.max(x - range, 0)
+    const endX = Math.min(x + range, maxX)
+    const startY = Math.max(y - range, 0)
+    const endY = Math.min(y + range, maxY)
 
     for (let cellY = startY; cellY <= endY; cellY++) {
       for (let cellX = startX; cellX <= endX; cellX++) {
@@ -170,16 +174,16 @@ export class Grid<T> {
   }
 
   /**
-   * 从左上角开始向下遍历单元格周边的单元格.
+   * 从左上角开始向下遍历指定单元格Moore型邻域的单元格.
    * 
-   * @param distance 统计的范围.
-   * - 该值为1时统计Moore型邻居单元格.
+   * @param range 统计的范围.
+   * - 该值为1时:
    *   ```
    *   ooo
    *   oxo
    *   oxo
    *   ```
-   * - 该值为2时统计Moore型邻居单元格及其向外扩充1圈的单元格, 以此类推.
+   * - 该值为2时:
    *   ```
    *   ooooo
    *   ooooo
@@ -188,16 +192,18 @@ export class Grid<T> {
    *   ooooo
    *   ```
    */
-  * neighborCoordinatesColumnMajor(x: number, y: number, distance: number = 1): IterableIterator<
-    [x: number, y: number]
-  > {
+  * mooreNeighbourhoodCoordinatesColumnMajor(
+    x: number
+  , y: number
+  , range: number = 1
+  ): IterableIterator<[x: number, y: number]> {
     const maxX = this.height - 1
     const maxY = this.width - 1
 
-    const startX = Math.max(x - distance, 0)
-    const endX = Math.min(x + distance, maxX)
-    const startY = Math.max(y - distance, 0)
-    const endY = Math.min(y + distance, maxY)
+    const startX = Math.max(x - range, 0)
+    const endX = Math.min(x + range, maxX)
+    const startY = Math.max(y - range, 0)
+    const endY = Math.min(y + range, maxY)
 
     for (let cellX = startX; cellX <= endX; cellX++) {
       for (let cellY = startY; cellY <= endY; cellY++) {
