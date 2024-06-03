@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/BlackGlory/extra-grid/compare/v0.1.1...v0.2.0) (2024-06-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* Node.js >= 18.17.0
+* - `neighborCoordinates` => `mooreNeighbourhoodCoordinates`
+- `neighborCoordinatesRowMajor` => `mooreNeighbourhoodCoordinatesRowMajor`
+- `neighborCoordinatesColumnMajor` => `mooreNeighbourhoodCoordinatesColumnMajor`
+
+### Features
+
+* add `vonNeumannNeighbourhoodCoordinates` methods ([0886065](https://github.com/BlackGlory/extra-grid/commit/08860657d0fbae4a5271fa421c36c0ad7f0b3463))
+
+
+### Bug Fixes
+
+* add `engines` field ([6f6a1fb](https://github.com/BlackGlory/extra-grid/commit/6f6a1fb31ab1bdcae608b78a6e591462b0b08581))
+
+
+* rename ([4513d86](https://github.com/BlackGlory/extra-grid/commit/4513d86024b52e8ee89a032068b34c0f75425eb6))
+
 ### [0.1.1](https://github.com/BlackGlory/extra-grid/compare/v0.1.0...v0.1.1) (2023-06-08)
 
 
