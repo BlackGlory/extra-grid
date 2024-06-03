@@ -1,5 +1,7 @@
 import { go, assert } from '@blackglory/prelude'
 import { Direction } from './direction.js'
+import { getManhattanDistance } from './get-manhattan-distance.js'
+import { filter } from 'iterable-operator'
 
 export class Grid<T> {
   private rows: T[][]
@@ -101,6 +103,93 @@ export class Grid<T> {
         yield [x, y]
       }
     }
+  }
+
+  /**
+   * 遍历指定单元格von Neumann型邻域的单元格, 访问顺序与内部存储的顺序相同.
+   * 
+   * @param range
+   * - 该值为1时:
+   *   ```
+   *    o
+   *   oxo
+   *    o
+   *   ```
+   * - 该值为2时:
+   *   ```
+   *     o
+   *    ooo
+   *   ooxoo
+   *    ooo
+   *     o
+   *   ```
+   */
+  vonNeumannNeighbourhoodCoordinates(
+    x: number
+  , y: number
+  , range: number = 1
+  ): IterableIterator<[x: number, y: number]> {
+    return this.vonNeumannNeighbourhoodCoordinatesRowMajor(x, y, range)
+  }
+
+  /**
+   * 从左上角开始向右遍历指定单元格von Neumann型邻域的单元格.
+   * 
+   * @param range
+   * - 该值为1时:
+   *   ```
+   *    o
+   *   oxo
+   *    o
+   *   ```
+   * - 该值为2时:
+   *   ```
+   *     o
+   *    ooo
+   *   ooxoo
+   *    ooo
+   *     o
+   *   ```
+   */
+  vonNeumannNeighbourhoodCoordinatesRowMajor(
+    x: number
+  , y: number
+  , range: number = 1
+  ): IterableIterator<[x: number, y: number]> {
+    return filter(
+      this.mooreNeighbourhoodCoordinatesRowMajor(x, y, range)
+    , coordinate => getManhattanDistance([x, y], coordinate) <= range
+    )
+  }
+
+  /**
+   * 从左上角开始向下遍历指定单元格von Neumann型邻域的单元格.
+   * 
+   * @param range
+   * - 该值为1时:
+   *   ```
+   *    o
+   *   oxo
+   *    o
+   *   ```
+   * - 该值为2时:
+   *   ```
+   *     o
+   *    ooo
+   *   ooxoo
+   *    ooo
+   *     o
+   *   ```
+   */
+  vonNeumannNeighbourhoodCoordinatesColumnMajor(
+    x: number
+  , y: number
+  , range: number = 1
+  ): IterableIterator<[x: number, y: number]> {
+    return filter(
+      this.mooreNeighbourhoodCoordinatesColumnMajor(x, y, range)
+    , coordinate => getManhattanDistance([x, y], coordinate) <= range
+    )
   }
 
   /**
