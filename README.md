@@ -25,6 +25,11 @@ enum Direction {
 function reverseDirection(direction: Direction): Direction
 ```
 
+### getManhattanDistance
+```ts
+function getManhattanDistance(a: [number, number], b: [number, number]): number
+```
+
 ### Grid
 ```ts
 class Grid<T> {
