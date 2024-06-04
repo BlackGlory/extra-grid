@@ -243,8 +243,8 @@ export class Grid<T> {
   , y: number
   , range: number = 1
   ): IterableIterator<[x: number, y: number]> {
-    const maxX = this.height - 1
-    const maxY = this.width - 1
+    const maxX = this.width - 1
+    const maxY = this.height - 1
 
     const startX = Math.max(x - range, 0)
     const endX = Math.min(x + range, maxX)
@@ -286,8 +286,8 @@ export class Grid<T> {
   , y: number
   , range: number = 1
   ): IterableIterator<[x: number, y: number]> {
-    const maxX = this.height - 1
-    const maxY = this.width - 1
+    const maxX = this.width - 1
+    const maxY = this.height - 1
 
     const startX = Math.max(x - range, 0)
     const endX = Math.min(x + range, maxX)
