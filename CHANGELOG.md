@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/BlackGlory/extra-grid/compare/v0.2.2...v0.3.0) (2024-07-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* Renamed `neighbourhood` to `neighborhood`
+
+* rename `neighbourhood` to `neighborhood` ([84d4996](https://github.com/BlackGlory/extra-grid/commit/84d4996fb1c89b09ead49349b44225713a88cada))
+
 ### [0.2.2](https://github.com/BlackGlory/extra-grid/compare/v0.2.1...v0.2.2) (2024-06-04)
 
 
