@@ -56,33 +56,33 @@ class Grid<T> {
   coordinatesRowMajor(): IterableIterator<[x: number, y: number]>
   coordinatesColumnMajor(): IterableIterator<[x: number, y: number]>
 
-  vonNeumannNeighbourhoodCoordinates(
+  vonNeumannNeighborhoodCoordinates(
     x: number
   , y: number
   , range: number = 1
   ): IterableIterator<[x: number, y: number]>
-  vonNeumannNeighbourhoodCoordinatesRowMajor(
+  vonNeumannNeighborhoodCoordinatesRowMajor(
     x: number
   , y: number
   , range: number = 1
   ): IterableIterator<[x: number, y: number]>
-  vonNeumannNeighbourhoodCoordinatesColumnMajor(
+  vonNeumannNeighborhoodCoordinatesColumnMajor(
     x: number
   , y: number
   , range: number = 1
   ): IterableIterator<[x: number, y: number]>
 
-  mooreNeighbourhoodCoordinates(
+  mooreNeighborhoodCoordinates(
     x: number
   , y: number
   , range: number = 1
   ): IterableIterator<[x: number, y: number]>
-  mooreNeighbourhoodCoordinatesRowMajor(
+  mooreNeighborhoodCoordinatesRowMajor(
     x: number
   , y: number
   , range: number = 1
   ): IterableIterator<[x: number, y: number]>
-  mooreNeighbourhoodCoordinatesColumnMajor(
+  mooreNeighborhoodCoordinatesColumnMajor(
     x: number
   , y: number
   , range: number = 1

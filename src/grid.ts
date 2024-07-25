@@ -124,12 +124,12 @@ export class Grid<T> {
    *     o
    *   ```
    */
-  vonNeumannNeighbourhoodCoordinates(
+  vonNeumannNeighborhoodCoordinates(
     x: number
   , y: number
   , range: number = 1
   ): IterableIterator<[x: number, y: number]> {
-    return this.vonNeumannNeighbourhoodCoordinatesRowMajor(x, y, range)
+    return this.vonNeumannNeighborhoodCoordinatesRowMajor(x, y, range)
   }
 
   /**
@@ -151,13 +151,13 @@ export class Grid<T> {
    *     o
    *   ```
    */
-  vonNeumannNeighbourhoodCoordinatesRowMajor(
+  vonNeumannNeighborhoodCoordinatesRowMajor(
     x: number
   , y: number
   , range: number = 1
   ): IterableIterator<[x: number, y: number]> {
     return filter(
-      this.mooreNeighbourhoodCoordinatesRowMajor(x, y, range)
+      this.mooreNeighborhoodCoordinatesRowMajor(x, y, range)
     , coordinate => getManhattanDistance([x, y], coordinate) <= range
     )
   }
@@ -181,13 +181,13 @@ export class Grid<T> {
    *     o
    *   ```
    */
-  vonNeumannNeighbourhoodCoordinatesColumnMajor(
+  vonNeumannNeighborhoodCoordinatesColumnMajor(
     x: number
   , y: number
   , range: number = 1
   ): IterableIterator<[x: number, y: number]> {
     return filter(
-      this.mooreNeighbourhoodCoordinatesColumnMajor(x, y, range)
+      this.mooreNeighborhoodCoordinatesColumnMajor(x, y, range)
     , coordinate => getManhattanDistance([x, y], coordinate) <= range
     )
   }
@@ -211,12 +211,12 @@ export class Grid<T> {
    *   ooooo
    *   ```
    */
-  mooreNeighbourhoodCoordinates(
+  mooreNeighborhoodCoordinates(
     x: number
   , y: number
   , range: number = 1
   ): IterableIterator<[x: number, y: number]> {
-    return this.mooreNeighbourhoodCoordinatesRowMajor(x, y, range)
+    return this.mooreNeighborhoodCoordinatesRowMajor(x, y, range)
   }
 
   /**
@@ -238,7 +238,7 @@ export class Grid<T> {
    *   ooooo
    *   ```
    */
-  * mooreNeighbourhoodCoordinatesRowMajor(
+  * mooreNeighborhoodCoordinatesRowMajor(
     x: number
   , y: number
   , range: number = 1
@@ -281,7 +281,7 @@ export class Grid<T> {
    *   ooooo
    *   ```
    */
-  * mooreNeighbourhoodCoordinatesColumnMajor(
+  * mooreNeighborhoodCoordinatesColumnMajor(
     x: number
   , y: number
   , range: number = 1
