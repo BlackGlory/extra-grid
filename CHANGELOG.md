@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/BlackGlory/extra-grid/compare/v0.3.0...v0.3.1) (2024-07-29)
+
+
+### Bug Fixes
+
+* keep jsdoc ([67806b9](https://github.com/BlackGlory/extra-grid/commit/67806b9c7ced572273736c77b59ad0d9992de4b2))
+
 ## [0.3.0](https://github.com/BlackGlory/extra-grid/compare/v0.2.2...v0.3.0) (2024-07-25)
 
 
