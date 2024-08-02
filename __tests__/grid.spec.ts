@@ -74,6 +74,28 @@ describe('Grid', () => {
     })
   })
 
+  describe('tryGet', () => {
+    test('generic', () => {
+      const width = 1
+      const height = 1
+      const grid = new Grid(width, height, () => 0)
+
+      const result = grid.tryGet(0, 0)
+
+      expect(result).toBe(0)
+    })
+
+    test('out of bounds', () => {
+      const width = 1
+      const height = 1
+      const grid = new Grid(width, height, () => 0)
+
+      const result = grid.tryGet(1, 0)
+
+      expect(result).toBe(null)
+    })
+  })
+
   describe('getNewCoordinate', () => {
     describe('Up', () => {
       test('distance = 1', () => {

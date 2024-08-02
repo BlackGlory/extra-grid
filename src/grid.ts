@@ -32,6 +32,17 @@ export class Grid<T> {
     return this.rows[y][x]
   }
 
+  tryGet(x: number, y: number): T | null {
+    if (
+      x >= 0 && x < this.width &&
+      y >= 0 && y < this.height
+    ) {
+      return this.rows[y][x]
+    } else {
+      return null
+    }
+  }
+
   set(x: number, y: number, value: T): void {
     assert(
       x >= 0 && x < this.width &&

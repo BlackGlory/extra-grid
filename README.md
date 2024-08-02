@@ -43,6 +43,8 @@ class Grid<T> {
   )
 
   get(x: number, y: number): T
+  tryGet(x: number, y: number): T | null
+
   set(x: number, y: number, value: T): void
 
   getNewCoordinate(
