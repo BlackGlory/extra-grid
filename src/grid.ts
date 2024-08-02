@@ -1,6 +1,7 @@
-import { go, assert } from '@blackglory/prelude'
+import { assert } from '@blackglory/prelude'
 import { Direction } from './direction.js'
 import { getManhattanDistance } from './get-manhattan-distance.js'
+import { getNewCoordinate } from './get-new-coordinate.js'
 import { filter } from 'iterable-operator'
 
 export class Grid<T> {
@@ -64,18 +65,7 @@ export class Grid<T> {
   , direction: Direction
   , distance: number = 1
   ): { x: number; y: number } | null {
-    const [newX, newY] = go(() => {
-      switch (direction) {
-        case Direction.Up: return [x, y - distance]
-        case Direction.Down: return [x, y + distance]
-        case Direction.Left: return [x - distance, y]
-        case Direction.Right: return [x + distance, y]
-        case Direction.UpLeft: return [x - distance, y - distance]
-        case Direction.UpRight: return [x + distance, y - distance]
-        case Direction.DownLeft: return [x - distance, y + distance]
-        case Direction.DownRight: return [x + distance, y + distance]
-      }
-    })
+    const [newX, newY] = getNewCoordinate(x, y, direction, distance)
 
     if (
       newX >= 0 && newX < this.width &&

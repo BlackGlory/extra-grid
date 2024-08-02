@@ -30,6 +30,16 @@ function reverseDirection(direction: Direction): Direction
 function getManhattanDistance(a: [number, number], b: [number, number]): number
 ```
 
+### getNewCoordinate
+```ts
+function getNewCoordinate(
+  x: number
+, y: number
+, direction: Direction
+, distance: number
+): [x: number, y: number]
+```
+
 ### Grid
 ```ts
 class Grid<T> {
