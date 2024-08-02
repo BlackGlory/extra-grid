@@ -23,25 +23,21 @@ export class Grid<T> {
     this.rows = rows
   }
 
+  has(x: number, y: number): boolean {
+    return x >= 0 && x < this.width
+        && y >= 0 && y < this.height
+  }
+
   get(x: number, y: number): T {
-    assert(
-      x >= 0 && x < this.width &&
-      y >= 0 && y < this.height
-    , 'Out of bounds'
-    )
+    assert(this.has(x, y), 'Out of bounds')
 
     return this.rows[y][x]
   }
 
   tryGet(x: number, y: number): T | null {
-    if (
-      x >= 0 && x < this.width &&
-      y >= 0 && y < this.height
-    ) {
-      return this.rows[y][x]
-    } else {
-      return null
-    }
+    return this.has(x, y)
+         ? this.rows[y][x]
+         : null
   }
 
   set(x: number, y: number, value: T): void {

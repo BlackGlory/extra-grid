@@ -52,6 +52,28 @@ describe('Grid', () => {
     })
   })
 
+  describe('has', () => {
+    test('generic', () => {
+      const width = 1
+      const height = 1
+      const grid = new Grid(width, height, () => 0)
+
+      const result = grid.has(0, 0)
+
+      expect(result).toBe(true)
+    })
+
+    test('out of bounds', () => {
+      const width = 1
+      const height = 1
+      const grid = new Grid(width, height, () => 0)
+
+      const result = grid.has(1, 0)
+
+      expect(result).toBe(false)
+    })
+  })
+
   describe('get', () => {
     test('generic', () => {
       const width = 1

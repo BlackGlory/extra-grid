@@ -52,6 +52,8 @@ class Grid<T> {
   , createCell: (x: number, y: number) => T
   )
 
+  has(x: number, y: number): boolean
+
   get(x: number, y: number): T
   tryGet(x: number, y: number): T | null
 
