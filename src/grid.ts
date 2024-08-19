@@ -197,7 +197,7 @@ export class Grid<T> {
    *   ```
    *   ooo
    *   oxo
-   *   oxo
+   *   ooo
    *   ```
    * - 该值为2时:
    *   ```
@@ -224,7 +224,7 @@ export class Grid<T> {
    *   ```
    *   ooo
    *   oxo
-   *   oxo
+   *   ooo
    *   ```
    * - 该值为2时:
    *   ```
@@ -267,7 +267,7 @@ export class Grid<T> {
    *   ```
    *   ooo
    *   oxo
-   *   oxo
+   *   ooo
    *   ```
    * - 该值为2时:
    *   ```
