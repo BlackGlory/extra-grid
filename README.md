@@ -66,9 +66,18 @@ class Grid<T> {
   , distance: number = 1
   ): { x: number; y: number } | null
 
-  coordinates(): IterableIterator<[x: number, y: number]>
-  coordinatesRowMajor(): IterableIterator<[x: number, y: number]>
-  coordinatesColumnMajor(): IterableIterator<[x: number, y: number]>
+  coordinates(
+    start?: [x: number, y: number] = [0, 0]
+  , end?: [x: number, y: number] = [this.width, this.height]
+  ): IterableIterator<[x: number, y: number]>
+  coordinatesRowMajor(
+    start?: [x: number, y: number] = [0, 0]
+  , end?: [x: number, y: number] = [this.width, this.height]
+  ): IterableIterator<[x: number, y: number]>
+  coordinatesColumnMajor(
+    start?: [x: number, y: number] = [0, 0]
+  , end?: [x: number, y: number] = [this.width, this.height]
+  ): IterableIterator<[x: number, y: number]>
 
   vonNeumannNeighborhoodCoordinates(
     x: number

@@ -76,27 +76,36 @@ export class Grid<T> {
   /**
    * 遍历坐标, 访问顺序与内部存储的顺序相同.
    */
-  coordinates(): IterableIterator<[x: number, y: number]> {
-    return this.coordinatesRowMajor()
+  coordinates(
+    start: [x: number, y: number] = [0, 0]
+  , end: [x: number, y: number] = [this.width, this.height]
+  ): IterableIterator<[x: number, y: number]> {
+    return this.coordinatesRowMajor(start, end)
   }
 
   /**
-   * 从网格左上角开始向右遍历所有单元格.
+   * 从网格左上角开始向右遍历单元格.
    */
-  * coordinatesRowMajor(): IterableIterator<[x: number, y: number]> {
-    for (let y = 0; y < this.height; y++) {
-      for (let x = 0; x < this.width; x++) {
+  * coordinatesRowMajor(
+    [startX, startY]: [x: number, y: number] = [0, 0]
+  , [endX, endY]: [x: number, y: number] = [this.width, this.height]
+  ): IterableIterator<[x: number, y: number]> {
+    for (let y = startY; y < endY; y++) {
+      for (let x = startX; x < endX; x++) {
         yield [x, y]
       }
     }
   }
 
   /**
-   * 从网格左上角开始向下遍历所有单元格.
+   * 从网格左上角开始向下遍历单元格.
    */
-  * coordinatesColumnMajor(): IterableIterator<[x: number, y: number]> {
-    for (let x = 0; x < this.width; x++) {
-      for (let y = 0; y < this.height; y++) {
+  * coordinatesColumnMajor(
+    [startX, startY]: [x: number, y: number] = [0, 0]
+  , [endX, endY]: [x: number, y: number] = [this.width, this.height]
+  ): IterableIterator<[x: number, y: number]> {
+    for (let x = startX; x < endX; x++) {
+      for (let y = startY; y < endY; y++) {
         yield [x, y]
       }
     }
