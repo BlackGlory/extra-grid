@@ -40,6 +40,24 @@ function getNewCoordinate(
 ): [x: number, y: number]
 ```
 
+### isVonNeumannNeighborOf
+```ts
+function isVonNeumannNeighborOf(
+  subject: [number, number]
+, object: [number, number]
+, range: number = 1
+): boolean
+```
+
+### isMooreNeighborOf
+```ts
+function isMooreNeighborOf(
+  subject: [number, number]
+, object: [number, number]
+, range: number = 1
+): boolean
+```
+
 ### Grid
 ```ts
 class Grid<T> {
