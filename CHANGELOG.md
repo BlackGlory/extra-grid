@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.6](https://github.com/BlackGlory/extra-grid/compare/v0.3.5...v0.3.6) (2024-10-04)
+
+
+### Features
+
+* add `isVonNeumannNeighborOf`, `isMooreNeighborOf` ([fd516ca](https://github.com/BlackGlory/extra-grid/commit/fd516ca4673b95ca3685c8d411d6c1de58246fcc))
+
 ### [0.3.5](https://github.com/BlackGlory/extra-grid/compare/v0.3.4...v0.3.5) (2024-09-02)
 
 
