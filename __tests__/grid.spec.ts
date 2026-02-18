@@ -406,7 +406,7 @@ describe('Grid', () => {
       const height = 1
       const grid = new Grid(width, height, () => null)
 
-      const iter = grid.mooreNeighborhoodCoordinatesRowMajor(0, 0, 1)
+      const iter = grid.vonNeumannNeighborhoodCoordinatesRowMajor(0, 0, 1)
       const result = toArray(iter)
 
       expect(result).toStrictEqual([])
@@ -417,13 +417,12 @@ describe('Grid', () => {
       const height = 2
       const grid = new Grid(width, height, () => null)
 
-      const iter = grid.mooreNeighborhoodCoordinatesRowMajor(0, 0, 1)
+      const iter = grid.vonNeumannNeighborhoodCoordinatesRowMajor(0, 0, 1)
       const result = toArray(iter)
 
       expect(result).toStrictEqual([
         [1, 0]
       , [0, 1]
-      , [1, 1]
       ])
     })
   })
@@ -474,7 +473,7 @@ describe('Grid', () => {
       const height = 1
       const grid = new Grid(width, height, () => null)
 
-      const iter = grid.mooreNeighborhoodCoordinatesColumnMajor(0, 0, 1)
+      const iter = grid.vonNeumannNeighborhoodCoordinatesColumnMajor(0, 0, 1)
       const result = toArray(iter)
 
       expect(result).toStrictEqual([])
@@ -485,13 +484,12 @@ describe('Grid', () => {
       const height = 2
       const grid = new Grid(width, height, () => null)
 
-      const iter = grid.mooreNeighborhoodCoordinatesColumnMajor(0, 0, 1)
+      const iter = grid.vonNeumannNeighborhoodCoordinatesColumnMajor(0, 0, 1)
       const result = toArray(iter)
 
       expect(result).toStrictEqual([
         [0, 1]
       , [1, 0]
-      , [1, 1]
       ])
     })
   })
